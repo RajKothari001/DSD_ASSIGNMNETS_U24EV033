@@ -4,7 +4,7 @@ module testbench();
     wire sum, cout;
 
     // Instantiate the full adder module
-    full_adder_structural uut (
+    full_adder_behavioral uut (
         .sum(sum),
         .cout(cout),
         .a(a),
@@ -18,7 +18,7 @@ module testbench();
         $dumpvars(0, testbench);
 
         // Monitor the inputs and outputs
-        $monitor($time, " a=%b, b=%b, cin=%b | sum=%b, cout=%b", a, b, cin, sum, cout);
+        $monitor($time, " a=%b, b=%b, cin=%b | cout=%b, sum=%b", a, b, cin, cout, sum);
 
         // Test cases
         a = 0; b = 0; cin = 0; #10; // 0 + 0 + 0 = 00
