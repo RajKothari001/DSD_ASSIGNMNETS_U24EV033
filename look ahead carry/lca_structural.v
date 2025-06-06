@@ -16,7 +16,7 @@ module or_gate(out, a, b);
     assign out = a | b;
 endmodule
 
-module buf(out, in);
+module buf_gate(out, in);
     input in;
     output out;
     assign out = in;
@@ -30,7 +30,7 @@ module lca_structural(sum, cout, a, b, cin);
     wire [7:0] p, g, p_and_c;
     wire [8:0] c; // Carry signals, c[0] is cin, c[8] is cout
 
-    buf b0(c[0], cin); // Initial carry input
+    buf_gate b0(c[0], cin); // Initial carry input
 
     // Generate propagate and generate signals
     genvar i;
@@ -44,6 +44,6 @@ module lca_structural(sum, cout, a, b, cin);
         end
     endgenerate
 
-    buf b1(cout, c[8]); // Final carry output
+    buf_gate b1(cout, c[8]); // Final carry output
 
 endmodule
