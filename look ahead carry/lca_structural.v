@@ -31,17 +31,11 @@ module lca_structural(sum, cout, a, b, cin);
     wire [8:0] c; // Carry signals, c[0] is cin, c[8] is cout
 
     buf b0(c[0], cin); // Initial carry input
-    
-    xor_gate p0(p[0], a[0], b[0]);
-    and_gate g0(g[0], a[0], b[0]);
-    or_gate c0(c[1], g[0], p_and_c[0]);
-    and_gate a0(p_and_c[0], p[0], cin);
-    xor_gate s0(sum[0], p[0], cin);
 
     // Generate propagate and generate signals
     genvar i;
     generate
-        for (i = 1; i < 8; i = i + 1) begin : gen_p_g
+        for (i = 0; i < 8; i = i + 1) begin : gen_p_g
             xor_gate p_inst(p[i], a[i], b[i]);
             and_gate g_inst(g[i], a[i], b[i]);
             and_gate a_inst(p_and_c[i], p[i], c[i]);
