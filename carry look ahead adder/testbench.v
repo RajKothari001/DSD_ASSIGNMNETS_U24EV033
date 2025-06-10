@@ -5,7 +5,7 @@ module testbench;
     wire [7:0] sum;
     wire cout;
 
-    rca_behavioral uut(.sum(sum), .a(a), .b(b), .cin(cin), .cout(cout));
+    cla_behavioral uut(.sum(sum), .a(a), .b(b), .cin(cin), .cout(cout));
 
     initial begin
         dumpfile("testbench.vcd");
