@@ -7,7 +7,7 @@ module cla_behavioral(sum, cout, a, b, cin);
     
     integer i;    
 
-    always @(*) begin: lca_adder
+    always @(*) begin: cla_adder
     c[0] = cin;
     p = a ^ b;
     g = a & b;
