@@ -10,7 +10,7 @@ module testbench();
         $dumpfile("dumpfile.vcd");
         $dumpvars(0, testbench);
 
-        $monitor($time, "a = %b | y = %b", a, y);
+        $monitor($time, "a = %b, enable = %b | y = %b", a, enable, y);
 
         enable = 1;
         a = 2'b00; #10;
